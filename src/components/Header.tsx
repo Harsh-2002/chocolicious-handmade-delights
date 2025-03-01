@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,12 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const handleContactClick = () => {
+    // Navigate to the contact section
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    closeMenu();
+  };
+
   const navLinks = [
     { name: "Home", to: "home" },
     { name: "Products", to: "products" },
@@ -37,15 +45,15 @@ const Header = () => {
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-2 bg-white/80 backdrop-blur-md shadow-sm"
-          : "py-4 bg-transparent"
+          ? "py-2 bg-white/90 backdrop-blur-md shadow-sm"
+          : "py-3 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <a
             href="#"
-            className="text-2xl font-serif font-bold text-chocolate-800"
+            className="text-xl font-serif font-medium text-chocolate-800"
           >
             Tasty <span className="text-caramel-500">Cakes</span>
           </a>
@@ -62,22 +70,20 @@ const Header = () => {
               offset={-80}
               duration={800}
               className="px-3 py-2 text-sm font-medium text-chocolate-700 hover:text-caramel-600 cursor-pointer transition-colors"
+              onClick={link.name === "Contact" ? handleContactClick : undefined}
             >
               {link.name}
             </Link>
           ))}
-          <button className="ml-4 btn-primary flex items-center text-sm">
-            <ShoppingBag className="mr-2 h-4 w-4" />
-            Order Now
-          </button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
           className="md:hidden flex items-center p-2 rounded-md text-chocolate-800"
+          aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -103,10 +109,6 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <button className="btn-primary mt-4 flex items-center justify-center">
-              <ShoppingBag className="mr-2 h-4 w-4" />
-              Order Now
-            </button>
           </div>
         </div>
       </div>

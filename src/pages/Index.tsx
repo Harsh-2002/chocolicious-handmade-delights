@@ -21,15 +21,17 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
       <Header />
-      <Hero />
-      <Products />
-      <About />
-      <Services />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <main>
+        <Hero />
+        <Products />
+        <About />
+        <Services />
+        <Testimonials />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
