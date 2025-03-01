@@ -37,7 +37,7 @@ const Header = () => {
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-2 bg-white/80 backdrop-blur-md shadow-sm"
+          ? "py-2 bg-white/60 backdrop-blur-md border-b border-white/20 shadow-sm"
           : "py-4 bg-transparent"
       }`}
     >
@@ -66,10 +66,17 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
-          <button className="ml-4 btn-primary flex items-center text-sm">
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={800}
+            className="ml-4 btn-primary flex items-center text-sm"
+          >
             <ShoppingBag className="mr-2 h-4 w-4" />
-            Order Now
-          </button>
+            Contact Us
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -83,7 +90,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden absolute w-full bg-white shadow-lg transform transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute w-full bg-white/80 backdrop-blur-md shadow-lg transform transition-all duration-300 ease-in-out ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
       >
@@ -103,10 +110,18 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <button className="btn-primary mt-4 flex items-center justify-center">
+            <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={800}
+              className="btn-primary mt-4 flex items-center justify-center"
+              onClick={closeMenu}
+            >
               <ShoppingBag className="mr-2 h-4 w-4" />
-              Order Now
-            </button>
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>
