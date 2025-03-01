@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -59,15 +60,15 @@
 
 @layer components {
   .section-container {
-    @apply container mx-auto px-4 md:px-6 py-12 md:py-20;
+    @apply container mx-auto px-4 md:px-8 py-12 md:py-24;
   }
 
   .section-title {
-    @apply font-serif text-2xl md:text-3xl lg:text-4xl font-medium mb-4 text-chocolate-800;
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-medium mb-4 text-chocolate-800;
   }
 
   .section-subtitle {
-    @apply text-base md:text-lg text-chocolate-600 max-w-3xl mx-auto mb-10;
+    @apply text-lg md:text-xl text-chocolate-600 max-w-3xl mx-auto mb-12;
   }
 
   .btn {
@@ -77,7 +78,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-caramel-500 text-white shadow hover:bg-caramel-600 
+    @apply btn bg-primary text-primary-foreground shadow hover:bg-primary/90 
            px-6 py-3 text-base rounded-full;
   }
 
@@ -101,40 +102,5 @@
   
   .glass-card {
     @apply bg-white/70 backdrop-blur-sm border border-white/20 shadow-sm;
-  }
-
-  /* Product card styling */
-  .product-card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
-  }
-
-  .product-card-image {
-    @apply w-full aspect-square object-cover;
-  }
-
-  .product-card-content {
-    @apply p-4;
-  }
-
-  .product-card-title {
-    @apply font-serif text-lg font-medium text-chocolate-800 mb-1;
-  }
-
-  .product-card-price {
-    @apply text-caramel-600 font-medium;
-  }
-
-  /* Responsive grid utilities */
-  .grid-responsive {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
-  }
-
-  .grid-responsive-3 {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
-  }
-
-  /* Feature card */
-  .feature-card {
-    @apply bg-white p-6 rounded-lg shadow-md;
   }
 }
